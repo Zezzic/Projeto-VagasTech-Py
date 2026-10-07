@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vagas remotas de tecnologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Vagas remotas de tecnologia</h1>
+    <p>Dados coletados de <a href="https://remotive.com" target="_blank" rel="noopener">Remotive</a>, <a href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a> e <a href="https://remoteok.com" target="_blank" rel="noopener">Remote OK</a>. Cada vaga leva ao anúncio original.</p>
+  </header>
+
+  <main>
+    <p id="erro" class="erro" hidden></p>
+
+    <section class="indicadores" aria-label="Indicadores">
+      <div class="indicador">
+        <span class="indicador-nome">Total de vagas</span>
+        <strong id="total">-</strong>
+      </div>
+      <div class="indicador">
+        <span class="indicador-nome">Tecnologia mais pedida</span>
+        <strong id="tecnologia-top">-</strong>
+      </div>
+      <div class="indicador">
+        <span class="indicador-nome">Categoria com mais vagas</span>
+        <strong id="categoria-top">-</strong>
+      </div>
+      <div class="indicador">
+        <span class="indicador-nome">Aceitam candidatos do Brasil</span>
+        <strong id="aceitam-brasil">-</strong>
+      </div>
+      <div class="indicador">
+        <span class="indicador-nome">Salário médio informado</span>
+        <strong id="salario-medio">-</strong>
+        <span class="indicador-nota" id="salario-nota"></span>
+      </div>
+      <div class="indicador">
+        <span class="indicador-nome">Última coleta</span>
+        <strong id="ultima-coleta">-</strong>
+      </div>
+    </section>
+
+    <section class="graficos" aria-label="Gráficos">
+      <article class="grafico span-4">
+        <h2>Tecnologias mais pedidas</h2>
+        <div class="area-grafico"><canvas id="grafico-tecnologias"></canvas></div>
+      </article>
+      <article class="grafico span-2">
+        <h2>Vagas por categoria</h2>
+        <div class="area-grafico"><canvas id="grafico-categorias"></canvas></div>
+      </article>
+      <article class="grafico span-3">
+        <h2>Vagas por nível</h2>
+        <div class="area-grafico area-baixa"><canvas id="grafico-niveis"></canvas></div>
+      </article>
+      <article class="grafico span-3">
+        <h2>Faixa salarial (US$ por ano)</h2>
+        <div class="area-grafico area-baixa"><canvas id="grafico-salarios"></canvas></div>
+      </article>
+      <article class="grafico span-6">
+        <h2>Vagas publicadas por dia</h2>
+        <div class="area-grafico area-baixa"><canvas id="grafico-dias"></canvas></div>
+      </article>
+    </section>
+
+    <section class="lista" aria-label="Lista de vagas">
+      <h2>Vagas coletadas</h2>
+      <p class="nota">Os indicadores e os gráficos acima acompanham os filtros.</p>
+
+      <form id="filtros" class="filtros">
+        <label>Buscar
+          <input type="search" id="busca" placeholder="Cargo ou empresa">
+        </label>
+        <label>Categoria
+          <select id="categoria"><option value="">Todas</option></select>
+        </label>
+        <label>Nível
+          <select id="nivel"><option value="">Todos</option></select>
+        </label>
+        <label>Tecnologia
+          <select id="tecnologia"><option value="">Todas</option></select>
+        </label>
+        <label>Fonte
+          <select id="fonte"><option value="">Todas</option></select>
+        </label>
+        <label class="marcar">
+          <input type="checkbox" id="brasil">
+          Aceita candidatos do Brasil
+        </label>
+        <button type="submit">Filtrar</button>
+        <button type="button" id="limpar" class="secundario">Limpar</button>
+        <button type="button" id="exportar" class="secundario">Exportar CSV</button>
+      </form>
+
+      <div class="tabela-area">
+        <table>
+          <thead>
+            <tr>
+              <th><button type="button" class="ordenar" data-campo="titulo">Cargo</button></th>
+              <th><button type="button" class="ordenar" data-campo="empresa">Empresa</button></th>
+              <th>Nível</th>
+              <th>Categoria</th>
+              <th>Tecnologias</th>
+              <th><button type="button" class="ordenar" data-campo="salario">Salário</button></th>
+              <th><button type="button" class="ordenar" data-campo="data">Publicada em</button></th>
+              <th>Fonte</th>
+              <th>Anúncio</th>
+            </tr>
+          </thead>
+          <tbody id="tabela"></tbody>
+        </table>
+      </div>
+
+      <div class="paginacao">
+        <button type="button" id="anterior" class="secundario">Anterior</button>
+        <span id="info-pagina"></span>
+        <button type="button" id="proxima" class="secundario">Próxima</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="comum.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalhes da vaga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <a href="index.html" class="voltar">Voltar para as vagas</a>
+    <h1 id="titulo">Carregando vaga</h1>
+    <p id="empresa"></p>
+  </header>
+
+  <main>
+    <p id="erro" class="erro" hidden></p>
+
+    <div id="conteudo" hidden>
+      <dl class="dados" id="dados"></dl>
+
+      <section class="descricao-area">
+        <h2>Descrição</h2>
+        <p id="descricao" class="descricao"></p>
+        <p class="nota" id="nota-fonte"></p>
+        <a id="anuncio" class="botao-link" target="_blank" rel="noopener">Ver anúncio original</a>
+      </section>
+    </div>
+  </main>
+
+  <script src="comum.js"></script>
+  <script src="vaga.js"></script>
+</body>
+</html>

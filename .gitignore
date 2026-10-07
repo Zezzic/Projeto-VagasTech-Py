@@ -1,0 +1,16 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# PyCharm
+.idea/
+
+# Backup gerado pelo banco/backup.py
+backup_vagas.json
+
+# Variáveis de ambiente
+.env
