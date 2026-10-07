@@ -1,4 +1,4 @@
-# Vagas remotas de tecnologia: crawler, API e dashboard
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=45&pause=1000&color=2CD7F7&background=0B032A&center=true&vCenter=true&width=1100&height=100&lines=VagasTech;Python;API;Crawler)](https://git.io/typing-svg)
 
 Fluxo do projeto: **Sites → Web Crawler → MongoDB → FastAPI → Dashboard**
 
